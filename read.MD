@@ -1,10 +1,10 @@
-Let's walk through the workflow for the deployment and explain how `service.run(test_sample)` executes and provides the output.
+A walk through the workflow for the deployment and explain of how `service.run(test_sample)` executes and provides the output.
 
 ### Workflow Overview:
 
 1. **Data Wrangling and Preparation (`data_wrangling.py` and `preprocessing.py`):**
    - `data_wrangling.py` reads raw data (in this case, a CSV file named `diabetes.csv`) from an Azure Blob Datastore, processes it (e.g., converting it to a pandas DataFrame), and saves the wrangled version (`wranggled.csv`) back to the datastore.
-   - `preprocessing.py` loads the wrangled data, cleans it (handling missing values), performs encoding, normalization using `QuantileTransformer`, and saves the processed version (`preprocessed.csv`) back to the datastore.
+   - `preprocessing.py` loads the wrangled data, cleans it (handling missing values), performs encoding, and normalization using `QuantileTransformer`, and saves the processed version (`preprocessed.csv`) back to the datastore.
 
 2. **Model Training (`modelling.py`):**
    - `modelling.py` reads the preprocessed data, splits it into training and testing sets, and trains multiple `RandomForestClassifier` models with different `n_estimators` values.
